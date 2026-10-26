@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Data should be saved in data as telemetry_data.csv
-df = pd.read_csv("/data/telemetry_data.csv")
+df = pd.read_csv("data/telemetry_data.csv")
 
 # Groups the turbines with the same IDs, then applies aggregate functions
 # Mean for temperature and the maximum for vibration
@@ -19,6 +19,7 @@ print(failing_turbines)
 
 if failing_turbines:
     pd.DataFrame(failing_turbines, columns=["turbine_id"]) \
-      .to_csv("/data/failing_turbines.csv", index=False)
+      .to_csv("data/failing_turbines.csv", index=False)
+    
 else:
     print("No failing turbines detected")
